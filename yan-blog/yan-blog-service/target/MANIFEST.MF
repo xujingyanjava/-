@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: blog-service
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: xujingyan
+Implementation-Vendor-Id: com.yanblog
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_112
+Main-Class: ${start-class}
+

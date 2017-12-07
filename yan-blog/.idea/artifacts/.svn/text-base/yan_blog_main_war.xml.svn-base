@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="yan-blog-main:war">
+    <output-path>$PROJECT_DIR$/yan-blog-main/target</output-path>
+    <root id="archive" name="blogMain.war">
+      <element id="artifact" artifact-name="yan-blog-main:war exploded" />
+    </root>
+  </artifact>
+</component>
