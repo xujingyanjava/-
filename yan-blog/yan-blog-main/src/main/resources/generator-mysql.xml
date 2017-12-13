@@ -63,7 +63,7 @@
 
         <!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
         <!--     系统管理员表-->
-        <table schema="acc_user" tableName="acc_user" domainObjectName="AccUser"   enableInsert="true"
+        <table schema="sns_category" tableName="sns_category" domainObjectName="SnsCategory"   enableInsert="true"
                enableSelectByPrimaryKey="true"
                enableSelectByExample="true"
                enableUpdateByPrimaryKey="true"

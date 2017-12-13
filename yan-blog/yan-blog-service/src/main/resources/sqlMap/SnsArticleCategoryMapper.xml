@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yanblog.model.dao.SnsArticleCategoryMapper" >
+  <resultMap id="BaseResultMap" type="com.yanblog.model.domain.SnsArticleCategory" >
+    <id column="sns_article_category_id" property="snsArticleCategoryId" jdbcType="BIGINT" />
+    <result column="sns_article_id" property="snsArticleId" jdbcType="BIGINT" />
+    <result column="sns_category_id" property="snsCategoryId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    sns_article_category_id, sns_article_id, sns_category_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yanblog.model.domain.SnsArticleCategoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sns_article_category
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sns_article_category
+    where sns_article_category_id = #{snsArticleCategoryId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sns_article_category
+    where sns_article_category_id = #{snsArticleCategoryId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yanblog.model.domain.SnsArticleCategory" >
+    insert into sns_article_category (sns_article_category_id, sns_article_id, 
+      sns_category_id)
+    values (#{snsArticleCategoryId,jdbcType=BIGINT}, #{snsArticleId,jdbcType=BIGINT}, 
+      #{snsCategoryId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yanblog.model.domain.SnsArticleCategory" >
+    insert into sns_article_category
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="snsArticleCategoryId != null" >
+        sns_article_category_id,
+      </if>
+      <if test="snsArticleId != null" >
+        sns_article_id,
+      </if>
+      <if test="snsCategoryId != null" >
+        sns_category_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="snsArticleCategoryId != null" >
+        #{snsArticleCategoryId,jdbcType=BIGINT},
+      </if>
+      <if test="snsArticleId != null" >
+        #{snsArticleId,jdbcType=BIGINT},
+      </if>
+      <if test="snsCategoryId != null" >
+        #{snsCategoryId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yanblog.model.domain.SnsArticleCategoryExample" resultType="java.lang.Integer" >
+    select count(*) from sns_article_category
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yanblog.model.domain.SnsArticleCategory" >
+    update sns_article_category
+    <set >
+      <if test="snsArticleId != null" >
+        sns_article_id = #{snsArticleId,jdbcType=BIGINT},
+      </if>
+      <if test="snsCategoryId != null" >
+        sns_category_id = #{snsCategoryId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where sns_article_category_id = #{snsArticleCategoryId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yanblog.model.domain.SnsArticleCategory" >
+    update sns_article_category
+    set sns_article_id = #{snsArticleId,jdbcType=BIGINT},
+      sns_category_id = #{snsCategoryId,jdbcType=BIGINT}
+    where sns_article_category_id = #{snsArticleCategoryId,jdbcType=BIGINT}
+  </update>
+</mapper>
