@@ -1,6 +1,5 @@
 package com.yanblog.base.utils;
 
-import com.blog.base.utils.redis.RedisUtils;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -44,35 +43,35 @@ public class RandomValidateCode {
     /**
      * 生成随机图片
      */
-    public void getRandcode(HttpServletRequest request,
-                            HttpServletResponse response) {
-
-        //BufferedImage类是具有缓冲区的Image类,Image类是用于描述图像信息的类
-        BufferedImage image = new BufferedImage(width,height, BufferedImage.TYPE_INT_BGR);
-        Graphics g = image.getGraphics();//产生Image对象的Graphics对象,改对象可以在图像上进行各种绘制操作
-        g.fillRect(0, 0, width, height);
-        g.setFont(new Font("Times New Roman", Font.ROMAN_BASELINE,18));
-        g.setColor(getRandColor(110, 133));
-        //绘制干扰线
-        for(int i=0;i<=lineSize;i++){
-            drowLine(g);
-        }
-        //绘制随机字符
-        String randomString = "";
-        for(int i=1;i<=stringNum;i++){
-            randomString=drowString(g,randomString,i);
-        }
-        RedisUtils redisUtils=RedisUtils.getInstance();
-        redisUtils.del("RANDOMCODEKEY");
-        redisUtils.set("RANDOMCODEKEY",randomString);
-        System.out.println(randomString);
-        g.dispose();
-        try {
-            ImageIO.write(image, "JPEG", response.getOutputStream());//将内存中的图片通过流动形式输出到客户端
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public void getRandcode(HttpServletRequest request,
+//                            HttpServletResponse response) {
+//
+//        //BufferedImage类是具有缓冲区的Image类,Image类是用于描述图像信息的类
+//        BufferedImage image = new BufferedImage(width,height, BufferedImage.TYPE_INT_BGR);
+//        Graphics g = image.getGraphics();//产生Image对象的Graphics对象,改对象可以在图像上进行各种绘制操作
+//        g.fillRect(0, 0, width, height);
+//        g.setFont(new Font("Times New Roman", Font.ROMAN_BASELINE,18));
+//        g.setColor(getRandColor(110, 133));
+//        //绘制干扰线
+//        for(int i=0;i<=lineSize;i++){
+//            drowLine(g);
+//        }
+//        //绘制随机字符
+//        String randomString = "";
+//        for(int i=1;i<=stringNum;i++){
+//            randomString=drowString(g,randomString,i);
+//        }
+//        RedisUtils redisUtils=RedisUtils.getInstance();
+//        redisUtils.del("RANDOMCODEKEY");
+//        redisUtils.set("RANDOMCODEKEY",randomString);
+//        System.out.println(randomString);
+//        g.dispose();
+//        try {
+//            ImageIO.write(image, "JPEG", response.getOutputStream());//将内存中的图片通过流动形式输出到客户端
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
     /*
      * 绘制字符串
      */
