@@ -15,10 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by xujingyan on 2017/10/25.
  */
 @SpringBootApplication
-@Configuration
 @EnableAutoConfiguration
 @MapperScan("com.yanblog.model.dao")
-//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class Application implements EmbeddedServletContainerCustomizer {
 
     public static void main(String[] args) {
@@ -27,6 +25,6 @@ public class Application implements EmbeddedServletContainerCustomizer {
 
     @Override
     public void customize(ConfigurableEmbeddedServletContainer container) {
-        container.setPort(365);
+        container.setPort(8088);
     }
 }

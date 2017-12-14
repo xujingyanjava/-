@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yanblog.model.dao.SnsArticleMapper" >
   <resultMap id="BaseResultMap" type="com.yanblog.model.domain.SnsArticle" >
-    <id column="sns_article" property="snsArticle" jdbcType="BIGINT" />
+    <id column="sns_article_id" property="snsArticleId" jdbcType="BIGINT" />
     <result column="author" property="author" jdbcType="VARCHAR" />
     <result column="acc_user_id" property="accUserId" jdbcType="BIGINT" />
     <result column="title" property="title" jdbcType="VARCHAR" />
@@ -43,7 +43,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    sns_article, author, acc_user_id, title, content, cover_image, status, delete_flag, 
+    sns_article_id, author, acc_user_id, title, content, cover_image, status, delete_flag, 
     create_time, last_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yanblog.model.domain.SnsArticleExample" >
@@ -64,18 +64,18 @@
     select 
     <include refid="Base_Column_List" />
     from sns_article
-    where sns_article = #{snsArticle,jdbcType=BIGINT}
+    where sns_article_id = #{snsArticleId,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from sns_article
-    where sns_article = #{snsArticle,jdbcType=BIGINT}
+    where sns_article_id = #{snsArticleId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.yanblog.model.domain.SnsArticle" >
-    insert into sns_article (sns_article, author, acc_user_id, 
+    insert into sns_article (sns_article_id, author, acc_user_id, 
       title, content, cover_image, 
       status, delete_flag, create_time, 
       last_time)
-    values (#{snsArticle,jdbcType=BIGINT}, #{author,jdbcType=VARCHAR}, #{accUserId,jdbcType=BIGINT}, 
+    values (#{snsArticleId,jdbcType=BIGINT}, #{author,jdbcType=VARCHAR}, #{accUserId,jdbcType=BIGINT}, 
       #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{coverImage,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{deleteFlag,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
       #{lastTime,jdbcType=TIMESTAMP})
@@ -83,8 +83,8 @@
   <insert id="insertSelective" parameterType="com.yanblog.model.domain.SnsArticle" >
     insert into sns_article
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="snsArticle != null" >
-        sns_article,
+      <if test="snsArticleId != null" >
+        sns_article_id,
       </if>
       <if test="author != null" >
         author,
@@ -115,8 +115,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="snsArticle != null" >
-        #{snsArticle,jdbcType=BIGINT},
+      <if test="snsArticleId != null" >
+        #{snsArticleId,jdbcType=BIGINT},
       </if>
       <if test="author != null" >
         #{author,jdbcType=VARCHAR},
@@ -184,7 +184,7 @@
         last_time = #{lastTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where sns_article = #{snsArticle,jdbcType=BIGINT}
+    where sns_article_id = #{snsArticleId,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.yanblog.model.domain.SnsArticle" >
     update sns_article
@@ -197,6 +197,6 @@
       delete_flag = #{deleteFlag,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       last_time = #{lastTime,jdbcType=TIMESTAMP}
-    where sns_article = #{snsArticle,jdbcType=BIGINT}
+    where sns_article_id = #{snsArticleId,jdbcType=BIGINT}
   </update>
 </mapper>

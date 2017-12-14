@@ -3,8 +3,8 @@ package com.yanblog.model.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-public class SnsArticle implements Serializable {
-    private Long snsArticle;
+public class SnsArticle implements Serializable{
+    private Long snsArticleId;
 
     private String author;
 
@@ -24,12 +24,12 @@ public class SnsArticle implements Serializable {
 
     private Date lastTime;
 
-    public Long getSnsArticle() {
-        return snsArticle;
+    public Long getSnsArticleId() {
+        return snsArticleId;
     }
 
-    public void setSnsArticle(Long snsArticle) {
-        this.snsArticle = snsArticle;
+    public void setSnsArticleId(Long snsArticleId) {
+        this.snsArticleId = snsArticleId;
     }
 
     public String getAuthor() {

@@ -1,11 +1,10 @@
 package com.yanblog.model.domain;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class SnsArticleExample implements Serializable {
+public class SnsArticleExample {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -106,63 +105,63 @@ public class SnsArticleExample implements Serializable {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andSnsArticleIsNull() {
-            addCriterion("sns_article is null");
+        public Criteria andSnsArticleIdIsNull() {
+            addCriterion("sns_article_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andSnsArticleIsNotNull() {
-            addCriterion("sns_article is not null");
+        public Criteria andSnsArticleIdIsNotNull() {
+            addCriterion("sns_article_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSnsArticleEqualTo(Long value) {
-            addCriterion("sns_article =", value, "snsArticle");
+        public Criteria andSnsArticleIdEqualTo(Long value) {
+            addCriterion("sns_article_id =", value, "snsArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSnsArticleNotEqualTo(Long value) {
-            addCriterion("sns_article <>", value, "snsArticle");
+        public Criteria andSnsArticleIdNotEqualTo(Long value) {
+            addCriterion("sns_article_id <>", value, "snsArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSnsArticleGreaterThan(Long value) {
-            addCriterion("sns_article >", value, "snsArticle");
+        public Criteria andSnsArticleIdGreaterThan(Long value) {
+            addCriterion("sns_article_id >", value, "snsArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSnsArticleGreaterThanOrEqualTo(Long value) {
-            addCriterion("sns_article >=", value, "snsArticle");
+        public Criteria andSnsArticleIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("sns_article_id >=", value, "snsArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSnsArticleLessThan(Long value) {
-            addCriterion("sns_article <", value, "snsArticle");
+        public Criteria andSnsArticleIdLessThan(Long value) {
+            addCriterion("sns_article_id <", value, "snsArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSnsArticleLessThanOrEqualTo(Long value) {
-            addCriterion("sns_article <=", value, "snsArticle");
+        public Criteria andSnsArticleIdLessThanOrEqualTo(Long value) {
+            addCriterion("sns_article_id <=", value, "snsArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSnsArticleIn(List<Long> values) {
-            addCriterion("sns_article in", values, "snsArticle");
+        public Criteria andSnsArticleIdIn(List<Long> values) {
+            addCriterion("sns_article_id in", values, "snsArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSnsArticleNotIn(List<Long> values) {
-            addCriterion("sns_article not in", values, "snsArticle");
+        public Criteria andSnsArticleIdNotIn(List<Long> values) {
+            addCriterion("sns_article_id not in", values, "snsArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSnsArticleBetween(Long value1, Long value2) {
-            addCriterion("sns_article between", value1, value2, "snsArticle");
+        public Criteria andSnsArticleIdBetween(Long value1, Long value2) {
+            addCriterion("sns_article_id between", value1, value2, "snsArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSnsArticleNotBetween(Long value1, Long value2) {
-            addCriterion("sns_article not between", value1, value2, "snsArticle");
+        public Criteria andSnsArticleIdNotBetween(Long value1, Long value2) {
+            addCriterion("sns_article_id not between", value1, value2, "snsArticleId");
             return (Criteria) this;
         }
 

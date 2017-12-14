@@ -1,10 +1,16 @@
 package com.yanblog.base.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.io.Serializable;
 
 /**
  * Created by xujingyan on 2016/12/14.
  */
+
+@JsonIgnoreProperties(value={"code"})
 public class JsonResponse<T> implements Response ,Serializable {
 
     private Integer code;
