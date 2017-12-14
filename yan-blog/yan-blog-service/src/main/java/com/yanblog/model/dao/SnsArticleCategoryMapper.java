@@ -2,7 +2,6 @@ package com.yanblog.model.dao;
 
 import com.yanblog.model.domain.SnsArticleCategory;
 import com.yanblog.model.domain.SnsArticleCategoryExample;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 

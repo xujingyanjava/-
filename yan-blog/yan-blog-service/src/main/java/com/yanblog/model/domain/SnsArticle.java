@@ -1,8 +1,9 @@
 package com.yanblog.model.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SnsArticle {
+public class SnsArticle implements Serializable {
     private Long snsArticle;
 
     private String author;

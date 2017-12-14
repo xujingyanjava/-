@@ -3,7 +3,9 @@ package com.yanblog.service.impl;
 import com.yanblog.model.dao.SnsArticleMapper;
 import com.yanblog.model.domain.SnsArticle;
 import com.yanblog.model.domain.SnsArticleExample;
+import com.yanblog.service.SnsArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

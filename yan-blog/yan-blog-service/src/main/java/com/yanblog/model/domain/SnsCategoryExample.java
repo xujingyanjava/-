@@ -1,10 +1,11 @@
 package com.yanblog.model.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class SnsCategoryExample {
+public class SnsCategoryExample implements Serializable {
     protected String orderByClause;
 
     protected boolean distinct;

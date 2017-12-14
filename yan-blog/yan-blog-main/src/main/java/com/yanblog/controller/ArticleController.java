@@ -1,7 +1,9 @@
 package com.yanblog.controller;
 
+import com.yanblog.model.domain.AccUser;
 import com.yanblog.model.domain.SnsArticle;
-import com.yanblog.service.impl.SnsArticleService;
+import com.yanblog.service.AccUserService;
+import com.yanblog.service.SnsArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +16,6 @@ public class ArticleController {
 
     @Autowired
     private SnsArticleService snsArticleService;
-
     @RequestMapping("/getArticleInfo")
     public String getArticleInfo(){
         SnsArticle snsArticle=snsArticleService.selectByPrimaryKey(1L);

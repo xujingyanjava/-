@@ -1,8 +1,9 @@
 package com.yanblog.model.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class AccUser {
+public class AccUser implements Serializable{
     private Long accUserId;
 
     private String userName;

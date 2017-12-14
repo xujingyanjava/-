@@ -5,6 +5,7 @@ import com.yanblog.model.domain.AccUser;
 import com.yanblog.model.domain.AccUserExample;
 import com.yanblog.service.AccUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

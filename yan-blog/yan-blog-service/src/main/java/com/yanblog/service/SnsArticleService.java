@@ -1,4 +1,4 @@
-package com.yanblog.service.impl;
+package com.yanblog.service;
 
 import com.yanblog.model.domain.SnsArticle;
 import com.yanblog.model.domain.SnsArticleExample;

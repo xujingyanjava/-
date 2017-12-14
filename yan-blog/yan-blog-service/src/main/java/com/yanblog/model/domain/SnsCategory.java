@@ -1,8 +1,9 @@
 package com.yanblog.model.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SnsCategory {
+public class SnsCategory implements Serializable {
     private Long snsCategoryId;
 
     private String snsCategoryName;

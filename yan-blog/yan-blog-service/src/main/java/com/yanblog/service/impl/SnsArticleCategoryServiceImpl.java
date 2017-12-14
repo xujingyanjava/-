@@ -5,6 +5,7 @@ import com.yanblog.model.domain.SnsArticleCategory;
 import com.yanblog.model.domain.SnsArticleCategoryExample;
 import com.yanblog.service.SnsArticleCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -2,7 +2,7 @@ package com.yanblog.model.dao;
 
 import com.yanblog.model.domain.AccUser;
 import com.yanblog.model.domain.AccUserExample;
-import org.apache.ibatis.annotations.Mapper;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
 
