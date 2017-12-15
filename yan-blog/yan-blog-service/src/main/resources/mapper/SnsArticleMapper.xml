@@ -199,4 +199,9 @@
       last_time = #{lastTime,jdbcType=TIMESTAMP}
     where sns_article_id = #{snsArticleId,jdbcType=BIGINT}
   </update>
+
+  <select id="findPage" parameterType="java.util.Map" resultType="com.yanblog.model.dto.SnsArticleDto">
+    SELECT  <include refid="Base_Column_List" />
+    from sns_article
+  </select>
 </mapper>

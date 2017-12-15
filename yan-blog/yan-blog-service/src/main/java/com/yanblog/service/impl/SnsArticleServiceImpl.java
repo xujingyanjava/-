@@ -3,12 +3,14 @@ package com.yanblog.service.impl;
 import com.yanblog.model.dao.SnsArticleMapper;
 import com.yanblog.model.domain.SnsArticle;
 import com.yanblog.model.domain.SnsArticleExample;
+import com.yanblog.model.dto.SnsArticleDto;
 import com.yanblog.service.SnsArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xujingyan on 2017/12/13.
@@ -57,5 +59,11 @@ public class SnsArticleServiceImpl implements SnsArticleService {
     @Override
     public int updateByPrimaryKey(SnsArticle record) {
         return snsArticleMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<SnsArticleDto> findPage(Map<String, Object> params) {
+
+        return null;
     }
 }
