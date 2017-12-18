@@ -24,13 +24,7 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
-            <version>4.1.6</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/pagehelper-4.1.6.jar</systemPath>
-        </dependency>
+
 
     </dependencies>
 </project>

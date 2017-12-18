@@ -6,6 +6,7 @@ import com.yanblog.model.dto.SnsArticleDto;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 
 public interface SnsArticleMapper {
@@ -25,5 +26,7 @@ public interface SnsArticleMapper {
 
     int updateByPrimaryKey(SnsArticle record);
 
-    List<SnsArticleDto> findPage(Map<String, Object> params);
+    List<SnsArticleDto> selectAll(Map<String, Object> params);
+
+    int count(Map<String,Object> params);
 }

@@ -29,7 +29,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
-      <mybatis-spring-boot>1.0.0</mybatis-spring-boot>
+      <mybatis-spring-boot>1.3.0</mybatis-spring-boot>
       <mysql-connector>5.1.39</mysql-connector>
   </properties>
 
@@ -62,11 +62,11 @@
 
     <!--分页插件-->
     <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper -->
-    <!--<dependency>-->
-      <!--<groupId>com.github.pagehelper</groupId>-->
-      <!--<artifactId>pagehelper</artifactId>-->
-      <!--<version>4.1.6</version>-->
-    <!--</dependency>-->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>5.1.2</version>
+    </dependency>
 
 
 

@@ -1,6 +1,6 @@
 package com.yanblog.controller;
 
-import com.github.pagehelper.PageHelper;
+import com.yanblog.base.Pagination;
 import com.yanblog.base.constans.ResponEnumes;
 import com.yanblog.base.response.JsonResponse;
 import com.yanblog.base.utils.JSONUtils;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -65,20 +64,12 @@ public class ArticleController {
                                                           ){
         JsonResponse<Map<String,Object>> jsonResponse=new JsonResponse<>();
 
-        JSONObject obj = JSONUtils.toJSONObject(params);
-
-        PageHelper.startPage(pageNum,pageSize);
-
-
-        Long snsCateGoryId=obj.getLong("snsCategoryId");
-        if(snsCateGoryId!=null){
-
-        }
-        List<SnsArticleDto> list = snsArticleService.findPage(null);
-
-
-
-
+        Pagination<SnsArticleDto> pagination = snsArticleService.findPage(pageNum,pageSize,null);
+        Map<String,Object> resultMap=new HashMap<>();
+        resultMap.put("list",pagination);
+        jsonResponse.setData(resultMap);
+        jsonResponse.setMsg(ResponEnumes.Success.getDesc());
+        jsonResponse.setCode(ResponEnumes.Success.getCode());
         return jsonResponse;
     }
 

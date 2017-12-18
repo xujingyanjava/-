@@ -200,8 +200,84 @@
     where sns_article_id = #{snsArticleId,jdbcType=BIGINT}
   </update>
 
-  <select id="findPage" parameterType="java.util.Map" resultType="com.yanblog.model.dto.SnsArticleDto">
+  <select id="selectAll" parameterType="java.util.Map" resultType="com.yanblog.model.dto.SnsArticleDto">
     SELECT  <include refid="Base_Column_List" />
     from sns_article
+    <where>
+      <if test="snsArticleId != null" >
+        sns_article_id,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="accUserId != null" >
+        acc_user_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="coverImage != null" >
+        cover_image,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="lastTime != null" >
+        last_time,
+      </if>
+    </where>
+    <if test="orderByCase!=null">
+      order by ${orderByCase}
+    </if>
+    <if test="startIndex !=null">
+      limit ${startIndex},${endIndex}
+    </if>
+  </select>
+
+  <select id="count" parameterType="java.util.Map" resultType="java.lang.Integer">
+    SELECT  count(1)
+    from sns_article
+    <where>
+      <if test="snsArticleId != null" >
+        sns_article_id,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="accUserId != null" >
+        acc_user_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="coverImage != null" >
+        cover_image,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="lastTime != null" >
+        last_time,
+      </if>
+    </where>
+
   </select>
 </mapper>

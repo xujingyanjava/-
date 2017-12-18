@@ -1,5 +1,7 @@
 package com.yanblog.service;
 
+import com.github.pagehelper.PageInfo;
+import com.yanblog.base.Pagination;
 import com.yanblog.model.domain.SnsArticle;
 import com.yanblog.model.domain.SnsArticleExample;
 import com.yanblog.model.dto.SnsArticleDto;
@@ -29,6 +31,6 @@ public interface SnsArticleService {
 
     int updateByPrimaryKey(SnsArticle record);
 
-    List<SnsArticleDto> findPage(Map<String,Object> params);
+    Pagination<SnsArticleDto> findPage(int pageNum,int pageSize,Map<String,Object> params);
 
 }

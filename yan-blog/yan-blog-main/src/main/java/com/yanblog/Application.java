@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @SpringBootApplication
 @EnableAutoConfiguration
-@MapperScan("com.yanblog.model.dao")
+@MapperScan(basePackages = "com.yanblog.model.dao")
 public class Application implements EmbeddedServletContainerCustomizer {
 
     public static void main(String[] args) {

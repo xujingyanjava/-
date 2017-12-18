@@ -1,5 +1,8 @@
 package com.yanblog.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.yanblog.base.Pagination;
 import com.yanblog.model.dao.SnsArticleMapper;
 import com.yanblog.model.domain.SnsArticle;
 import com.yanblog.model.domain.SnsArticleExample;
@@ -9,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -62,8 +66,19 @@ public class SnsArticleServiceImpl implements SnsArticleService {
     }
 
     @Override
-    public List<SnsArticleDto> findPage(Map<String, Object> params) {
-
-        return null;
+    public Pagination<SnsArticleDto> findPage(int pageNum,int pageSize,Map<String,Object> params) {
+        if(params==null){
+            params=new HashMap<>();
+        }
+        int counrNumber=snsArticleMapper.count(params);
+        Pagination pagination=new Pagination();
+        pagination.setTotalPageSize(counrNumber);
+        pagination.setPageNo(pageNum);
+        pagination.setPageSize(pageSize);
+        params.put("startIndex", pagination.getStartIndex());
+        params.put("endIndex",pagination.getEndIndex());
+        List<SnsArticleDto> snsArticleDtoList = snsArticleMapper.selectAll(params);
+        pagination.setDataList(snsArticleDtoList);
+        return pagination;
     }
 }
