@@ -1,13 +1,17 @@
-package com.yanblog.model.dao;
+package com.yanblog.service;
 
+import com.yanblog.base.Pagination;
 import com.yanblog.model.domain.SnsCategory;
 import com.yanblog.model.domain.SnsCategoryExample;
 
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Created by xujingyan on 2017/12/20.
+ */
+public interface SnsCategoryService {
 
-public interface SnsCategoryMapper {
     int countByExample(SnsCategoryExample example);
 
     int deleteByPrimaryKey(Long snsCategoryId);
@@ -24,7 +28,6 @@ public interface SnsCategoryMapper {
 
     int updateByPrimaryKey(SnsCategory record);
 
-    int count(Map<String,Object> params);
+    Pagination<SnsCategory> findPage(int pageNum,int pageSize,Map<String,Object> params);
 
-    List<SnsCategory> selectAll(Map<String,Object> params);
 }

@@ -152,4 +152,50 @@
       last_time = #{lastTime,jdbcType=TIMESTAMP}
     where sns_category_id = #{snsCategoryId,jdbcType=BIGINT}
   </update>
+
+  <select id="selectAll" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sns_category
+    <where>
+      <if test="snsCategoryId != null" >
+        and sns_category_id=#{snsCategoryId}
+      </if>
+      <if test="snsCategoryName != null" >
+        and sns_category_name=#{snsCategoryName}
+      </if>
+      <if test="lastSnsCategoryId != null" >
+        and last_sns_category_id=#{lastSnsCategoryId}
+      </if>
+      <if test="type != null" >
+        and type=#{type}
+      </if>
+    </where>
+    <if test="orderByCase!=null">
+      order by ${orderByCase}
+    </if>
+    <if test="startIndex !=null">
+      limit ${startIndex},${endIndex}
+    </if>
+  </select>
+
+  <select id="count" parameterType="java.util.Map" resultType="java.lang.Integer">
+    select
+    count(1)
+    from sns_category
+    <where>
+      <if test="snsCategoryId != null" >
+        and sns_category_id=#{snsCategoryId}
+      </if>
+      <if test="snsCategoryName != null" >
+        and sns_category_name=#{snsCategoryName}
+      </if>
+      <if test="lastSnsCategoryId != null" >
+        and last_sns_category_id=#{lastSnsCategoryId}
+      </if>
+      <if test="type != null" >
+        and type=#{type}
+      </if>
+    </where>
+  </select>
 </mapper>

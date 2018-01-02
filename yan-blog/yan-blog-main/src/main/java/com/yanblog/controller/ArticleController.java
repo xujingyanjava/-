@@ -62,9 +62,20 @@ public class ArticleController {
                                                            @RequestParam(value = "pageNum", required = false, defaultValue="1") Integer pageNum,
                                                            @RequestParam(value = "pageSize", required = false, defaultValue="10") Integer pageSize
                                                           ){
+
+       JSONObject jsonObject= JSONUtils.toJSONObject(params);
+
+        Map<String,Object> selectParams=new HashMap<>();
+
+        if(jsonObject!=null){
+            Long snsCategoryId=jsonObject.getLong("snsCategoryId");
+            if(snsCategoryId!=null){
+                selectParams.put("snsCategoryId",snsCategoryId);
+            }
+        }
         JsonResponse<Map<String,Object>> jsonResponse=new JsonResponse<>();
 
-        Pagination<SnsArticleDto> pagination = snsArticleService.findPage(pageNum,pageSize,null);
+        Pagination<SnsArticleDto> pagination = snsArticleService.findPage(pageNum,pageSize,selectParams);
         Map<String,Object> resultMap=new HashMap<>();
         resultMap.put("list",pagination);
         jsonResponse.setData(resultMap);

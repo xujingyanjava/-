@@ -2,8 +2,10 @@ package com.yanblog.model.dao;
 
 import com.yanblog.model.domain.SnsArticleCategory;
 import com.yanblog.model.domain.SnsArticleCategoryExample;
+import com.yanblog.model.domain.SnsCategory;
 
 import java.util.List;
+import java.util.Map;
 
 
 public interface SnsArticleCategoryMapper {
@@ -22,4 +24,5 @@ public interface SnsArticleCategoryMapper {
     int updateByPrimaryKeySelective(SnsArticleCategory record);
 
     int updateByPrimaryKey(SnsArticleCategory record);
+
 }

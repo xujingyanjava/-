@@ -205,35 +205,30 @@
     from sns_article
     <where>
       <if test="snsArticleId != null" >
-        sns_article_id,
+        and sns_article_id=#{snsArticleId}
       </if>
       <if test="author != null" >
-        author,
+        and author=#{author}
       </if>
       <if test="accUserId != null" >
-        acc_user_id,
+        and acc_user_id=#{accUserId}
       </if>
       <if test="title != null" >
-        title,
+        and title=#{title}
       </if>
       <if test="content != null" >
-        content,
+        and content=#{content}
       </if>
       <if test="coverImage != null" >
-        cover_image,
+        and cover_image=#{coverImage}
       </if>
       <if test="status != null" >
-        status,
+        and status=#{status}
       </if>
       <if test="deleteFlag != null" >
-        delete_flag,
+        and delete_flag=#{deleteFlag}
       </if>
-      <if test="createTime != null" >
-        create_time,
-      </if>
-      <if test="lastTime != null" >
-        last_time,
-      </if>
+
     </where>
     <if test="orderByCase!=null">
       order by ${orderByCase}
@@ -248,35 +243,30 @@
     from sns_article
     <where>
       <if test="snsArticleId != null" >
-        sns_article_id,
+        and sns_article_id=#{snsArticleId}
       </if>
       <if test="author != null" >
-        author,
+        and author=#{author}
       </if>
       <if test="accUserId != null" >
-        acc_user_id,
+        and acc_user_id=#{accUserId}
       </if>
       <if test="title != null" >
-        title,
+        and title=#{title}
       </if>
       <if test="content != null" >
-        content,
+        and content=#{content}
       </if>
       <if test="coverImage != null" >
-        cover_image,
+        and cover_image=#{coverImage}
       </if>
       <if test="status != null" >
-        status,
+        and status=#{status}
       </if>
       <if test="deleteFlag != null" >
-        delete_flag,
+        and delete_flag=#{deleteFlag}
       </if>
-      <if test="createTime != null" >
-        create_time,
-      </if>
-      <if test="lastTime != null" >
-        last_time,
-      </if>
+
     </where>
 
   </select>
