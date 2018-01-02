@@ -1,5 +1,7 @@
 package com.yanblog.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.yanblog.base.Pagination;
 import com.yanblog.model.dao.SnsCategoryMapper;
 import com.yanblog.model.domain.SnsCategory;
@@ -64,19 +66,23 @@ public class SnsCategoryServiceImpl implements SnsCategoryService {
 
     @Override
     public Pagination<SnsCategory> findPage(int pageNum, int pageSize, Map<String, Object> params) {
+
         if(params==null){
             params=new HashMap<>();
         }
-        int counrNumber=snsCategoryMapper.count(params);
-        Pagination pagination=new Pagination();
-        pagination.setTotalPageSize(counrNumber);
-        pagination.setPageNo(pageNum);
-        pagination.setPageSize(pageSize);
-        params.put("startIndex", pagination.getStartIndex());
-        params.put("endIndex",pagination.getEndIndex());
+        PageHelper.startPage(1, 1);
         List<SnsCategory> snsArticleDtoList = snsCategoryMapper.selectAll(params);
-        pagination.setDataList(snsArticleDtoList);
-        return pagination;
+        System.out.println("Total: " + ((Page) snsArticleDtoList).getTotal());
+//        int counrNumber=snsCategoryMapper.count(params);
+//        Pagination pagination=new Pagination();
+//        pagination.setTotalPageSize(counrNumber);
+//        pagination.setPageNo(pageNum);
+//        pagination.setPageSize(pageSize);
+//        params.put("startIndex", pagination.getStartIndex());
+//        params.put("endIndex",pagination.getEndIndex());
+//        List<SnsCategory> snsArticleDtoList = snsCategoryMapper.selectAll(params);
+//        pagination.setDataList(snsArticleDtoList);
+        return null;
     }
 
 }

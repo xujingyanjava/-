@@ -61,13 +61,12 @@
     </dependency>
 
     <!--分页插件-->
-    <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper -->
+
     <dependency>
       <groupId>com.github.pagehelper</groupId>
-      <artifactId>pagehelper</artifactId>
-      <version>5.1.2</version>
+      <artifactId>pagehelper-spring-boot-starter</artifactId>
+      <version>1.2.3</version>
     </dependency>
-
 
 
     <dependency>
